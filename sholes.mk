@@ -26,9 +26,8 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 PRODUCT_COPY_FILES += \
     device/moto/sholes/init.sholes.rc:root/init.sholes.rc \
-    device/moto/sholes/uevent.sholes.rc:root/uevent.sholes.rc
-
-#    device/mot/sholes/init.rc:root/init.rc \
+    device/moto/sholes/uevent.sholes.rc:root/uevent.sholes.rc \
+    device/moto/sholes/init.rc:root/init.rc
 
 ## (2) Also get non-open-source CDMA-specific aspects if available
 $(call inherit-product-if-exists, vendor/motorola/sholes/sholes-vendor.mk)
@@ -154,7 +153,7 @@ PRODUCT_COPY_FILES += \
     
 # ICS sound
 PRODUCT_PACKAGES += \
-hcitool hciattach hcidump \
+hcitool hciattach hcidump hciconfig hcid \
 libaudioutils  audio.a2dp.default audio_policy.sholes \
 libaudiohw_legacy audio.primary.omap3
 
@@ -187,6 +186,7 @@ PRODUCT_PACKAGES += \
     libOMX.TI.Video.Decoder \
     libOMX.TI.Video.encoder \
     libOMX.TI.JPEG.Encoder \
+    gps.sholes \
     sensors.sholes \
     lights.sholes \
     camera.sholes \
