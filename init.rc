@@ -471,6 +471,12 @@ service mtpd /system/bin/mtpd
     disabled
     oneshot
 
+#shared transport user space mgr service for Bluetooth, FM and GPS
+   service uim /system/bin/uim-sysfs
+   class core
+   user bluetooth
+   group bluetooth net_bt_admin
+
 service keystore /system/bin/keystore /data/misc/keystore
     class main
     user keystore
